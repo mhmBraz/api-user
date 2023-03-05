@@ -1,4 +1,3 @@
-import {Car} from '../../entities/car.entity';
 import {
   IsArray,
   IsEmail,
@@ -6,10 +5,11 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import {CarDto} from '../sub-dtos';
-import {Type} from 'class-transformer';
-
 export class CreateUserRequestDto {
+  @IsNotEmpty()
+  @IsString()
+  cpf: string;
+  
   @IsString()
   @IsNotEmpty()
   login: string;
@@ -22,10 +22,4 @@ export class CreateUserRequestDto {
   @IsNotEmpty()
   @IsEmail()
   email: string;
-
-  @IsArray()
-  @IsNotEmpty()
-  @ValidateNested({each: true})
-  @Type(() => CarDto)
-  cars: Car[];
 }

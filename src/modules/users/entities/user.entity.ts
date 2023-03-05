@@ -16,34 +16,34 @@ export class User {
   @Prop({type: String, required: true, unique: true})
   email: string;
 
-  @Prop({type: String, required: true, unique: true})
+  @Prop({type: String, required: false, default: null})
   sex: string;
 
-  @Prop({type: String, required: true, unique: true})
+  @Prop({type: String, required: true})
   name: string;
 
-  @Prop({type: String, required: true, unique: true})
+  @Prop({type: String, required: false, default: null})
   birthDate: string;
 
-  @Prop({type: String, required: true, unique: true})
+  @Prop({type: String, required: false})
   cnh: string;
 
   @Prop({type: String, required: true, unique: true})
   cpf: string;
 
-  @Prop({type: String, required: true, unique: true})
+  @Prop({type: String, required: false, default: null})
   phone: string;
 
-  @Prop({type: Boolean, required: false, unique: true})
+  @Prop({type: Boolean, required: false, default: null})
   status: string;
 
-  @Prop({type: String, required: false, unique: true})
+  @Prop({type: String, required: false, default: null})
   codPassword: string;
 
-  @Prop({type: String, required: false, unique: true})
+  @Prop({type: String, required: false, default: null})
   expirationCodPassword: string;
 
-  @Prop({type: String, required: false, unique: true})
+  @Prop({type: String, required: false, default: null})
   photo: string;
 
   @Prop({type: Date, required: true, default: Date.now})
@@ -64,4 +64,4 @@ export class User {
 
 export type UserDocument = HydratedDocument<User>;
 export const UserSchema = SchemaFactory.createForClass(User);
-UserSchema.index({email: 1});
+UserSchema.index({cpf: 1});
