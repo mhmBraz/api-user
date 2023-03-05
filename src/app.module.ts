@@ -11,5 +11,3 @@ import {UsersModule} from './modules/users/users.module';
   ],
 })
 export class AppModule {}
-
-console.log(process.env.APP_MONGODB_URI)

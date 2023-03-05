@@ -23,6 +23,11 @@ export class UserRepository {
       .exec();
   }
 
+  public async user(_id: string) {
+    const document = await this.userModel.findOne({_id: _id});
+    return document.toJSON();
+  }
+
   public async create(payload: CreateUserRequestDto) {
     const document = await this.userModel.create(payload);
     return document.toJSON();
