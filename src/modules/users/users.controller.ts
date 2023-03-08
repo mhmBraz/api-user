@@ -6,6 +6,7 @@ import {AddCarToUserResponseDto, CreateUserResponseDto} from './dtos/res';
 import {GetUserService} from './services/get-user.service';
 import { EditUserRequestDto } from './dtos/req/edit-user.dto';
 import { GenericUserResponseDto } from './dtos/res/generic.dto';
+import { I18n, I18nContext } from 'nestjs-i18n';
 
 @Controller('/users')
 export class UsersController {
@@ -36,7 +37,9 @@ export class UsersController {
   @Get(':userId')
   public async user(
     @Param('userId') userId: string,
+    @I18n() i18n: I18nContext
   ): Promise<CreateUserResponseDto> {
+    // return await i18n.t('test.success');
     return this.getUserService.handler(userId);
   }
 
